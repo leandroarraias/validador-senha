@@ -76,23 +76,26 @@ Content-Type: application/json;charset=utf-8
 ```
 
 <h1>Estruturação do sistema</h1>
-A estruturação do projeto se baseou no conceito de modelagem hexagonal. Podemos dividir o projeto em duas packages principais:
-<u><h3>arraias.validadorsenha.domain</h3></u>
-Esta package concentra a regras de negócio. Nela encontramos a classe de serviço executada pelo RestController bem como as classes que representam as regras disponíveis para validação de senhas.
 
-<b>subpackage regras: </b>Possui as regras de validação de senhas. Cada regra deverá ser implementada em componentes distintos e depois declarando o uso no arquivo application.yaml. A declaração e configuração serão exemplificadas adiante.
+<p>A estruturação do projeto se baseou no conceito de modelagem hexagonal. Podemos dividir o projeto em duas packages principais:</p>
 
-<u><h3>arraias.validadorsenha.application</h3></u>
+<h3><u>arraias.validadorsenha.domain</u></h3>
 
-Nesta package se encontram as classes relacionadas a configuração do sistema, tarefas auxiliares como tratamento de erros bem como as APIs que se integram à classe de serviços, como por exemplo o RestController e o JMS Publisher. Caso a aplicação utilizasse banco de dados, nessa package estariam declaradas as queries e implementações para acesso ao database.
+<p>Esta package concentra a regras de negócio. Nela encontramos a classe de serviço executada pelo RestController bem como as classes que representam as regras disponíveis para validação de senhas.</p>
 
-<b>subpackage config: </b>Possui classes relacionadas a configuração do sistema, como por exemplo configuração do swagger e loads do arquivo application.yaml.
-<br><br>
-<b>subpackage controller: </b>Contem as APIs que expoem as regras de negócio para o ambiente externo.
-<br><br>
-<b>subpackage exception: </b>Realiza o tratamento centralizado das exceções lançadas no sistema.
-<br><br>
-<b>subpackage jms: </b>Contém as APIs de integração com o Message Broker (neste sistema, a funcionalidade de conexão e envio de mensagens para o Message Broker é apenas simulada através da impressão de logs).
+<p><b>subpackage regras: </b>Possui as regras de validação de senhas. Cada regra deverá ser implementada em componentes distintos e depois declarando o uso no arquivo application.yaml. A declaração e configuração serão exemplificadas adiante.</p>
+
+<h3><u>arraias.validadorsenha.application</u></h3>
+
+<p>Nesta package se encontram as classes relacionadas a configuração do sistema, tarefas auxiliares como tratamento de erros bem como as APIs que se integram à classe de serviços, como por exemplo o RestController e o JMS Publisher. Caso a aplicação utilizasse banco de dados, nessa package estariam declaradas as queries e implementações para acesso ao database.</p>
+
+<p><b>subpackage config: </b>Possui classes relacionadas a configuração do sistema, como por exemplo configuração do swagger e loads do arquivo application.yaml.</p>
+
+<p><b>subpackage controller: </b>Contem as APIs que expoem as regras de negócio para o ambiente externo.</p>
+
+<p><b>subpackage exception: </b>Realiza o tratamento centralizado das exceções lançadas no sistema.</p>
+
+<p><b>subpackage jms: </b>Contém as APIs de integração com o Message Broker (neste sistema, a funcionalidade de conexão e envio de mensagens para o Message Broker é apenas simulada através da impressão de logs).</p>
 
 <h1>Customizações</h1>
 <h1>Regras de validação de senhas</h1>
