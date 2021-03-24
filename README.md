@@ -1,6 +1,5 @@
 <h1>Objetivo do projeto</h1>
-O objetivo deste projeto é demonstrar a estrutura básica de uma aplicação WEB, utilizando Spring Boot.
-
+<p>O objetivo deste projeto é demonstrar a estrutura básica de uma aplicação WEB, utilizando Spring Boot.</p>
 <h1>Funcionalidade do sistema</h1>
 O sistema terá um único serviço exposto ao cliente, que consiste na validação de senhas.
 
