@@ -143,12 +143,14 @@ exceptionpublisher:
 
 
 <h1>Considerações arquiteturais</h1>
- - Devido ser uma API geralmente utilizada em cadastros de login, não foi considerada nenhuma forma de autenticação;
- - O HTTP Method selecionado foi o POST, para que possa ser criptografado via protocolo HTTP;
- - Por ser uma API aberta, deve-se considerar a implementação de um mecanismo de CAPTCHA, que não foi objeto nessa aplicação de exemplo;
- - Caso seja definida um serviço externo para regras de validação de senhas, como Active Directory, e o mesmo costume apresentar baixa performance, há de se considerar a implementação de um interceptor para calcular o tempo de processamento e comunicar o time de sustentação automaticamente caso ultrapasse um limite aceitável;
- - Por se tratar de validação de senhas, os logs impressos não contem os dados trafegados. No entanto, quando os dados não são sigilosos ou há como ser camuflado, é importante que os logs identifiquem a requisição corrente bem como informe o maior detalhe possível do processamento, facilitando futuras análises de problemas;
- - Para este caso, foi "simulada" uma integração com um Message Broker apenas, em caso de erros sistêmicos. Porém, há de se considerar uma implementação mais abstrata (como utilizado nas regras de validações) para que diversos mecanismos de tratamento de erro possam ser utilizados ao mesmo tempo, por exemplo, o envio de uma mensagem para sustentação e gravação de logs de erro em banco de dados;
- - Embora a solução possa ser desenvolvida em outras plataformas, o Spring Framework foi escolhido pois fornece todos os meios necessários para a construção de uma plataforma corporativa completa, além de permitir o uso de web containers (Tomcat e Jetty por exemplo) para uso de recursos importantes, como controle transacional, injeção de recursos, etc. Além disso, a possibilidade de uso do Spring Boot acelera tanto a configuração do ambiente quanto o desenvolvimento e teste da aplicação em tempo de desenvolvimento, ao mesmo tempo que há amplo suporte da comunidade de desenvolvimento em todo o mundo;
 
+<ul>
+<li>Devido ser uma API geralmente utilizada em cadastros de login, não foi considerada nenhuma forma de autenticação;</li>
+<li>O HTTP Method selecionado foi o POST, para que possa ser criptografado via protocolo HTTP;</li>
+<li>Por ser uma API aberta, deve-se considerar a implementação de um mecanismo de CAPTCHA, que não foi objeto nessa aplicação de exemplo;</li>
+<li>Caso seja definida um serviço externo para regras de validação de senhas, como Active Directory, e o mesmo costume apresentar baixa performance, há de se considerar a implementação de um interceptor para calcular o tempo de processamento e comunicar o time de sustentação automaticamente caso ultrapasse um limite aceitável;</li>
+<li>Por se tratar de validação de senhas, os logs impressos não contem os dados trafegados. No entanto, quando os dados não são sigilosos ou há como ser camuflado, é importante que os logs identifiquem a requisição corrente bem como informe o maior detalhe possível do processamento, facilitando futuras análises de problemas;</li>
+<li>Para este caso, foi "simulada" uma integração com um Message Broker apenas, em caso de erros sistêmicos. Porém, há de se considerar uma implementação mais abstrata (como utilizado nas regras de validações) para que diversos mecanismos de tratamento de erro possam ser utilizados ao mesmo tempo, por exemplo, o envio de uma mensagem para sustentação e gravação de logs de erro em banco de dados;</li>
+<li>Embora a solução possa ser desenvolvida em outras plataformas, o Spring Framework foi escolhido pois fornece todos os meios necessários para a construção de uma plataforma corporativa completa, além de permitir o uso de web containers (Tomcat e Jetty por exemplo) para uso de recursos importantes, como controle transacional, injeção de recursos, etc. Além disso, a possibilidade de uso do Spring Boot acelera tanto a configuração do ambiente quanto o desenvolvimento e teste da aplicação em tempo de desenvolvimento, ao mesmo tempo que há amplo suporte da comunidade de desenvolvimento em todo o mundo;</li>
+</ul>
  
