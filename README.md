@@ -1,14 +1,14 @@
-#Objetivo do projeto
+<h1>Objetivo do projeto</h1>
 O objetivo deste projeto é demonstrar a estrutura básica de uma aplicação WEB, utilizando Spring Boot.
 
-#Funcionalidade do sistema
+<h1>Funcionalidade do sistema</h1>
 O sistema terá um único serviço exposto ao cliente, que consiste na validação de senhas.
 
 A senha é informada para o sistema via requisição HTTP/REST, e é retornado um valor booleano: <b>true</b> se válida ou <b>false</b> se inválida.
 
 Caso ocorra algum erro de processamento da requisição, será retornado ao cliente uma mensagem amigável informando o problema e um código <b>uuid</b> de referência ao erro. Os detalhes técnicos do erro serão impressos no log da aplicação, bem como enviados para uma fila em um Message Broker para alerta ao time de sustentação (para efeito de demonstração nesse projeto, a API de publicação na fila do Message Broker apenas imprimirá no log os dados que seriam enviados ao mesmo).
 
-#Regra padrão de validação das senhas
+<h1>Regra padrão de validação das senhas</h1>
 O sistema poderá conter diversas regras de validação, conforme será exibido adiante. Porém, a regra default será:
 
 - De 9 a até 74 caracteres;
@@ -20,7 +20,7 @@ O sistema poderá conter diversas regras de validação, conforme será exibido 
 
 Espaços em branco, letras com acento incluindo "ç" por exemplo, são considerados inválidos.
 
-#Execução do sistema
+<h1>Execução do sistema</h1>
 1 - Certifique-se de que a versão corrente do Java instalado seja a 11. Para isso, execute o comando <code>java -version</code>. O resultado, deverá ser semelhante ao exibido abaixo:
 
 ```
@@ -70,14 +70,14 @@ Response:
 }
 ```
 
-#Estruturação do sistema
+<h1>Estruturação do sistema</h1>
 A estruturação do projeto se baseou no conceito de modelagem hexagonal. Podemos dividir o projeto em duas packages principais:
-<u><h1>arraias.validadorsenha.domain</h1></u>
+<u><h3>arraias.validadorsenha.domain</h3></u>
 Esta package concentra a regras de negócio. Nela encontramos a classe de serviço executada pelo RestController bem como as classes que representam as regras disponíveis para validação de senhas.
 
 <b>subpackage regras: </b>Possui as regras de validação de senhas. Cada regra deverá ser implementada em componentes distintos e depois declarando o uso no arquivo application.yaml. A declaração e configuração serão exemplificadas adiante.
 
-<u><h1>arraias.validadorsenha.application</h1></u>
+<u><h3>arraias.validadorsenha.application</h3></u>
 
 Nesta package se encontram as classes relacionadas a configuração do sistema, tarefas auxiliares como tratamento de erros bem como as APIs que se integram à classe de serviços, como por exemplo o RestController e o JMS Publisher. Caso a aplicação utilizasse banco de dados, nessa package estariam declaradas as queries e implementações para acesso ao database.
 
@@ -89,7 +89,7 @@ Nesta package se encontram as classes relacionadas a configuração do sistema, 
 <br><br>
 <b>subpackage jms: </b>Contém as APIs de integração com o Message Broker (neste sistema, a funcionalidade de conexão e envio de mensagens para o Message Broker é apenas simulada através da impressão de logs).
 
-#Customizações
+<h1>Customizações</h1>
 <h1>Regras de validação de senhas</h1>
 
 O sistema permite a inclusão de novas regras de negócio e selecionar a regra a ser utilizada via arquivo application.yaml. Para isso, deve-se seguir os seguintes passos:
@@ -133,7 +133,7 @@ exceptionpublisher:
 ```
 
 
-#Considerações arquiteturais
+<h1>Considerações arquiteturais</h1>
  - Devido ser uma API geralmente utilizada em cadastros de login, não foi considerada nenhuma forma de autenticação;
  - O HTTP Method selecionado foi o POST, para que possa ser criptografado via protocolo HTTP;
  - Por ser uma API aberta, deve-se considerar a implementação de um mecanismo de CAPTCHA, que não foi objeto nessa aplicação de exemplo;
