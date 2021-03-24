@@ -1,12 +1,9 @@
 <h1>Objetivo do projeto</h1>
 <p>O objetivo deste projeto é demonstrar a estrutura básica de uma aplicação WEB, utilizando Spring Boot.</p>
 <h1>Funcionalidade do sistema</h1>
-O sistema terá um único serviço exposto ao cliente, que consiste na validação de senhas.
-
-A senha é informada para o sistema via requisição HTTP/REST, e é retornado um valor booleano: <b>true</b> se válida ou <b>false</b> se inválida.
-
-Caso ocorra algum erro de processamento da requisição, será retornado ao cliente uma mensagem amigável informando o problema e um código <b>uuid</b> de referência ao erro. Os detalhes técnicos do erro serão impressos no log da aplicação, bem como enviados para uma fila em um Message Broker para alerta ao time de sustentação (para efeito de demonstração nesse projeto, a API de publicação na fila do Message Broker apenas imprimirá no log os dados que seriam enviados ao mesmo).
-
+<p>O sistema terá um único serviço exposto ao cliente, que consiste na validação de senhas.</p>
+<p>A senha é informada para o sistema via requisição HTTP/REST, e é retornado um valor booleano: <b>true</b> se válida ou <b>false</b> se inválida.</p>
+<p>Caso ocorra algum erro de processamento da requisição, será retornado ao cliente uma mensagem amigável informando o problema e um código <b>uuid</b> de referência ao erro. Os detalhes técnicos do erro serão impressos no log da aplicação, bem como enviados para uma fila em um Message Broker para alerta ao time de sustentação (para efeito de demonstração nesse projeto, a API de publicação na fila do Message Broker apenas imprimirá no log os dados que seriam enviados ao mesmo).</p>
 <h1>Regra padrão de validação das senhas</h1>
 O sistema poderá conter diversas regras de validação, conforme será exibido adiante. Porém, a regra default será:
 
