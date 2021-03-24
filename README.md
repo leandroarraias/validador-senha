@@ -48,9 +48,7 @@ Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.10+8-LTS-162, mixed mode)
 
 <p>Caso deseje cancelar a execução, basta pressionar <code>CTRL + C</code> e confirmar.</p>
 
-<p>3 - Para importar o projeto para a sua IDE de preferência, é recomendada a compilação do projeto, pois as APIs utilizadas pela camada de controller são geradas em tempo de compilação. Para isso, basta executar o build pelo comando da sua IDE ou, via prompt de comando, navegue para a pasta raiz do projeto e execute o comando <code>mvn clean install</code>.</p>
-
-<p>4 - Para executar a API, você poderá utilizar a página Swagger do sistema onde está descrito o serviço exposto:</p>
+<p>3 - Para executar a API, você poderá utilizar a página Swagger do sistema onde está descrito o serviço exposto:</p>
 
 ```
 http://localhost:8080/swagger-ui.html#
@@ -76,6 +74,8 @@ Content-Type: application/json;charset=utf-8
   "senhavalida" : true
 }
 ```
+
+<p>4 - Para importar o projeto para a sua IDE de preferência, é recomendada a compilação do projeto, pois as APIs utilizadas pela camada de controller são geradas em tempo de compilação. Para isso, basta executar o build pelo comando da sua IDE ou, via prompt de comando, navegue para a pasta raiz do projeto e execute o comando <code>mvn clean install</code>.</p>
 
 <h1>Estruturação do sistema</h1>
 
