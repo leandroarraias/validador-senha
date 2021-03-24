@@ -1,11 +1,18 @@
 <h1>Objetivo do projeto</h1>
+
 <p>O objetivo deste projeto é demonstrar a estrutura básica de uma aplicação WEB, utilizando Spring Boot.</p>
+
 <h1>Funcionalidade do sistema</h1>
+
 <p>O sistema terá um único serviço exposto ao cliente, que consiste na validação de senhas.</p>
+
 <p>A senha é informada para o sistema via requisição HTTP/REST, e é retornado um valor booleano: <b>true</b> se válida ou <b>false</b> se inválida.</p>
+
 <p>Caso ocorra algum erro de processamento da requisição, será retornado ao cliente uma mensagem amigável informando o problema e um código <b>uuid</b> de referência ao erro. Os detalhes técnicos do erro serão impressos no log da aplicação, bem como enviados para uma fila em um Message Broker para alerta ao time de sustentação (para efeito de demonstração nesse projeto, a API de publicação na fila do Message Broker apenas imprimirá no log os dados que seriam enviados ao mesmo).</p>
+
 <h1>Regra padrão de validação das senhas</h1>
-O sistema poderá conter diversas regras de validação, conforme será exibido adiante. Porém, a regra default será:
+
+<p>O sistema poderá conter diversas regras de validação, conforme será exibido adiante. Porém, a regra default será:</p>
 
 - De 9 a até 74 caracteres;
 - Ao menos 1 dígito
@@ -14,10 +21,11 @@ O sistema poderá conter diversas regras de validação, conforme será exibido 
 - Ao menos 1 caractere especial. Serão aceitos os seguintes caracteres: !@#$%^&*()-+
 - Não possuir caracteres repetidos dentro do conjunto
 
-Espaços em branco, letras com acento incluindo "ç" por exemplo, são considerados inválidos.
+<p>Espaços em branco, letras com acento incluindo "ç" por exemplo, são considerados inválidos.</p>
 
 <h1>Execução do sistema</h1>
-1 - Certifique-se de que a versão corrente do Java instalado seja a 11. Para isso, execute o comando <code>java -version</code>. O resultado, deverá ser semelhante ao exibido abaixo:
+
+<p>1 - Certifique-se de que a versão corrente do Java instalado seja a 11. Para isso, execute o comando <code>java -version</code>. O resultado, deverá ser semelhante ao exibido abaixo:</p>
 
 ```
 D:\workspace\validador-senha>java -version
@@ -26,7 +34,7 @@ Java(TM) SE Runtime Environment 18.9 (build 11.0.10+8-LTS-162)
 Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.10+8-LTS-162, mixed mode)
 ```
 
-2 - Para executar a aplicação via prompt de comando, navegue até a pasta raiz do projeto (onde está o arquivo pom.xml) e execute o comando <code>mvnw spring-boot:run</code>. O Spring Boot dará start no projeto e ao fim da inicialização serão informados a porta em que a aplicação está sendo executada e que a aplicação foi inicializada com sucesso:
+<p>2 - Para executar a aplicação via prompt de comando, navegue até a pasta raiz do projeto (onde está o arquivo pom.xml) e execute o comando <code>mvnw spring-boot:run</code>. O Spring Boot dará start no projeto e ao fim da inicialização serão informados a porta em que a aplicação está sendo executada e que a aplicação foi inicializada com sucesso:</p>
 
 ```
 2021-03-23 15:48:05.557  INFO 9732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
@@ -35,19 +43,20 @@ Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.10+8-LTS-162, mixed mode)
 2021-03-23 15:48:05.595  INFO 9732 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
 2021-03-23 15:48:05.686  INFO 9732 --- [main] a.v.ValidadorSenhaApplication            : Started ValidadorSenhaApplication in 2.199 seconds (JVM running for 2.542)
 ```
-Caso deseje cancelar a execução, basta pressionar <code>CTRL + C</code> e confirmar.
 
-3 - Para importar o projeto para a sua IDE de preferência, é recomendada a compilação do projeto, pois as APIs utilizadas pela camada de controller são geradas em tempo de compilação. Para isso, basta executar o build pelo comando da sua IDE ou, via prompt de comando, navegue para a pasta raiz do projeto e execute o comando <code>mvn clean install</code>.
+<p>Caso deseje cancelar a execução, basta pressionar <code>CTRL + C</code> e confirmar.</p>
 
-4 - Para executar a API, você poderá utilizar a página Swagger do sistema onde está descrito o serviço exposto:
+<p>3 - Para importar o projeto para a sua IDE de preferência, é recomendada a compilação do projeto, pois as APIs utilizadas pela camada de controller são geradas em tempo de compilação. Para isso, basta executar o build pelo comando da sua IDE ou, via prompt de comando, navegue para a pasta raiz do projeto e execute o comando <code>mvn clean install</code>.</p>
+
+<p>4 - Para executar a API, você poderá utilizar a página Swagger do sistema onde está descrito o serviço exposto:</p>
 
 ```
 http://localhost:8080/swagger-ui.html#
 ```
 
-Abaixo, seguem exemplos da request e response do serviço:
+<p>Abaixo, seguem exemplos da request e response do serviço:</p>
 
-Request:
+<p>Request:</p>
 
 ```
 POST /validarsenha HTTP/1.1
@@ -58,7 +67,7 @@ Content-Type: application/json;charset=utf-8
     "senha":"ABCabc@1234"
 }
 ```
-Response:
+<p>Response:</p>
 
 ```
 {
