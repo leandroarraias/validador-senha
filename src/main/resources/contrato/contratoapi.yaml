@@ -28,6 +28,8 @@ paths:
           description: "Senha valida ou invalida"
           schema:
             $ref: "#/definitions/SenhaValidada"
+        "400":
+          description: "Parametro invalido"
         "500":
           description: "Erro ao processar solicitacao"
           schema:
