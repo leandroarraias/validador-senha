@@ -21,7 +21,7 @@ public class ValidadorSenhaController implements ValidarsenhaApi {
 	private ValidadorSenhaService service;
 	
 	@Override
-	public ResponseEntity<SenhaValidadaRepresentation> validarsenhaPost(SenhaRepresentation senha) {
+	public ResponseEntity<SenhaValidadaRepresentation> validarSenha(SenhaRepresentation senha) {
 		
 		logger.info("Recebendo requisicao para validacao de senha.");
 		

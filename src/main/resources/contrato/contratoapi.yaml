@@ -1,43 +1,62 @@
-swagger: 2.0
+swagger: "2.0"
 info:
-  version: 1.0.0
-  title: Aplicacao para validacao de senhas
+  version: "1.0.0"
+  title: "Aplicacao para validacao de senhas"
 servers:
-  - url: http://localhost:8080
+  - url: "http://localhost:8080"
+tags:
+- name: "ValidadorSenhaController"
+  description: "Recebe requisicoes para validacao de senhas"
 paths:
   /validarsenha:
     post:
-      summary: Valida uma senha enviada
+      summary: "Valida uma senha enviada"
+      operationId: "validarSenha"
       consumes:
-        - application/json;charset=utf-8
+        - "application/json;charset=utf-8"
       produces:
-        - application/json;charset=utf-8
+        - "application/json;charset=utf-8"
       parameters:
-        - in: body
-          name: senha
-          description: senha
+        - in: "body"
+          name: "senha"
+          description: "senha"
           required: true
           schema:
             $ref: "#/definitions/Senha"
-      responses: 
-        200:
-          description: Senha valida ou invalida
+      responses:
+        "200":
+          description: "Senha valida ou invalida"
           schema:
             $ref: "#/definitions/SenhaValidada"
+        "500":
+          description: "Erro ao processar solicitacao"
+          schema:
+            $ref: "#/definitions/MensagemErro"
 definitions:
   Senha:
     required:
-    - senha
-    type: object
+    - "senha"
+    type: "object"
     properties:
       senha:
-        type: string
-        description: Senha a ser validada
+        type: "string"
+        description: "Senha a ser validada"
         minLength: 1
         maxLength: 255
   SenhaValidada:
-    type: object
+    type: "object"
     properties:
       senhavalida:
         type: boolean
-        description: Senha valida ou invalida
+        description: "Senha valida ou invalida"
+  MensagemErro:
+    type: "object"
+    properties:
+      uuid:
+        type: "string"
+        description: "Identificador unico da requisicao"
+        example: "372a6d92-96bc-484e-b708-a208cf1602ce"
+      erro:
+        type: "string"
+        description: "Mensagem amigavel do erro"
+        example: "Ocorreu um erro ao processar a requisicao"
