@@ -98,11 +98,12 @@ Content-Type: application/json;charset=utf-8
 <p><b>subpackage jms: </b>Contém as APIs de integração com o Message Broker (neste sistema, a funcionalidade de conexão e envio de mensagens para o Message Broker é apenas simulada através da impressão de logs).</p>
 
 <h1>Customizações</h1>
-<h1>Regras de validação de senhas</h1>
 
-O sistema permite a inclusão de novas regras de negócio e selecionar a regra a ser utilizada via arquivo application.yaml. Para isso, deve-se seguir os seguintes passos:
+<h3><u>Regras de validação de senhas</u></h3>
 
-1 - Criar uma nova classe concreta na subpackage <b>regras.impl</b>. Essa classe deverá implementar a interface <b>RegraSenha</b> e receber um nome único via annotation <b>@Component</b>:
+<p>O sistema permite a inclusão de novas regras de negócio e selecionar a regra a ser utilizada via arquivo application.yaml. Para isso, deve-se seguir os seguintes passos:</p>
+
+<p>1 - Criar uma nova classe concreta na subpackage <b>regras.impl</b>. Essa classe deverá implementar a interface <b>RegraSenha</b> e receber um nome único via annotation <b>@Component</b>:</p>
 
 ```
 package arraias.validadorsenha.domain.regras.impl;
@@ -120,20 +121,20 @@ public class MinhaNovaRegra implements RegraSenha {
 	////
 ```
 
-2 - Declarar o nome dado ao componente (nesse exemplo, "minhaNovaRegra") na propriedade <b>regrasenha.regraSelecionada</b> do arquivo <b>application.yaml</b>:
+<p>2 - Declarar o nome dado ao componente (nesse exemplo, "minhaNovaRegra") na propriedade <b>regrasenha.regraSelecionada</b> do arquivo <b>application.yaml</b>:</p>
 
 ```
 regrasenha:
   regraSelecionada: "minhaNovaRegra"
 ```
 
-Pronto. O sistema já irá considerar a nova regra. Caso esse atributo não seja declarado, ou seja informado uma regra que não existe, será sempre executada a regra padrão, descrita no início desse documento. Esse projeto, já possui uma regra adicional de exemplo para referência: <b>regraSomenteNumeros</b>.
+<p>Pronto. O sistema já irá considerar a nova regra. Caso esse atributo não seja declarado, ou seja informado uma regra que não existe, será sempre executada a regra padrão, descrita no início desse documento. Esse projeto, já possui uma regra adicional de exemplo para referência: <b>regraSomenteNumeros</b>.</p>
 
-<h1>Configuração do Message Broker</h1>
+<h3><u>Configuração do Message Broker</u></h3>
 
-Nesse sistema, o uso do Message Broker é apenas figurativo e a API de interface com o mesmo apenas imprime a mensagem que seria enviada e a fila de destino.
+<p>Nesse sistema, o uso do Message Broker é apenas figurativo e a API de interface com o mesmo apenas imprime a mensagem que seria enviada e a fila de destino.</p>
 
-Para fins didáticos, porém, a aplicação foi configurada de maneira a ler do arquivo <b>application.yaml</b> a fila de destino configurada na propriedade <b>exceptionpublisher.queue</b>. Em caso de real implementação, esse conjunto de propriedades deveria conter outras informações como destino, login e senha do Message Broker:
+<p>Para fins didáticos, porém, a aplicação foi configurada de maneira a ler do arquivo <b>application.yaml</b> a fila de destino configurada na propriedade <b>exceptionpublisher.queue</b>. Em caso de real implementação, esse conjunto de propriedades deveria conter outras informações como destino, login e senha do Message Broker:</p>
 
 ```
 exceptionpublisher:
