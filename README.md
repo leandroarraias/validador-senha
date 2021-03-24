@@ -14,12 +14,14 @@
 
 <p>O sistema poderá conter diversas regras de validação, conforme será exibido adiante. Porém, a regra default será:</p>
 
-- De 9 a até 74 caracteres;
-- Ao menos 1 dígito
-- Ao menos 1 letra minúscula
-- Ao menos 1 letra maiúscula
-- Ao menos 1 caractere especial. Serão aceitos os seguintes caracteres: !@#$%^&*()-+
-- Não possuir caracteres repetidos dentro do conjunto
+<ul>
+<li>De 9 a até 74 caracteres;</li>
+<li>Ao menos 1 dígito;</li>
+<li>Ao menos 1 letra minúscula;</li>
+<li>Ao menos 1 letra maiúscula;</li>
+<li>Ao menos 1 caractere especial. Serão aceitos os seguintes caracteres: !@#$%^&*()-+ ;</li>
+<li>Não possuir caracteres repetidos dentro do conjunto;</li>
+</ul>
 
 <p>Espaços em branco, letras com acento incluindo "ç" por exemplo, são considerados inválidos.</p>
 
